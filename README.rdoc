@@ -1,0 +1,13 @@
+== README
+
+OmniAuth を使ったサンプル
+
+UserモデルはDeviseを使用
+
+Ruby 2.0
+Rails 4.0
+
+References
+
+https://github.com/plataformatec/devise
+https://github.com/intridea/omniauth

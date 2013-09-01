@@ -1,0 +1,31 @@
+<div class="span12">
+  <h1>OmniAuth Sample</h1>
+
+  <% if current_user.nil? %>
+    <div>
+      <%= link_to "Sign Up With Facebook", "/auth/facebook", class: 'btn btn-primary btn-lg' %>
+      <%#= link_to "Sign Up With Twitter", "/auth/twitter", class: 'btn btn-primary btn-lg' %>
+      <%= link_to "Sign Up With Github", "/auth/github", class: 'btn btn-primary btn-lg' %>
+    </div>
+  <% else %>
+    <div>
+      <%= link_to_if current_user.user_oauths.where(provider: :facebook).empty?, "Connect Facebook", "/auth/facebook", class: 'btn btn-primary btn-lg' %>
+      <%= link_to_if current_user.user_oauths.where(provider: :twitter).empty?, "Connect Twitter", "/auth/twitter", class: 'btn btn-primary btn-lg' %>
+      <%= link_to_if current_user.user_oauths.where(provider: :github).empty?, "Connect Github", "/auth/github", class: 'btn btn-primary btn-lg' %>
+    </div>
+  <% end %>
+
+  <% if current_user %>
+    <h2><%= current_user.email %></h2>
+
+    <% current_user.user_oauths.each do |user_oauth| %>
+      <pre><%= user_oauth.value_hash %>
+      </pre>
+      <br/>
+    <% end %>
+
+    <%#= image_tag current_user.profile_image_url, height: 24, width: 24 %>
+    <%#= link_to current_user.name, 'javascript:void(0)' %>
+    <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+  <% end %>
+</div>

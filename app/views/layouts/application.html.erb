@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>SAMPLE</title>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+
+  <%= csrf_meta_tags %>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="../../assets/js/html5shiv.js"></script>
+  <script src="../../assets/js/respond.min.js"></script>
+  <![endif]-->
+</head>
+<body>
+
+<div class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Sample</a>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="starter-template">
+  </div>
+
+  <div class="row">
+    <div class='span12'>
+      <p id="notice"><%= notice %></p>
+    </div>
+
+    <%= yield %>
+  </div>
+
+</div>
+<!-- /.container -->
+
+<footer class="tac">
+  <%= link_to *(['https://github.com/yoshioota/omniauth-facebook-twitter-sample'] * 2) %>
+</footer>
+
+</body>
+</html>
